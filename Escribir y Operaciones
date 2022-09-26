@@ -1,0 +1,10 @@
+# Para escribir algo
+print ("Hola mundo")
+
+# Para hacer operaciones
+print (2+3)
+
+# a y b son variantes, que las defino al principio
+a = 2
+b = 3
+print (a+b)
