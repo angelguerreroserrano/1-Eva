@@ -1,9 +1,20 @@
 # Me pregunta como me llamo y me responde
 # La variable input, lee lo que ponga, en este caso respondo con el nombre para que despues lo ponga
 
-print ("Hola, ¿Cómo te llamas?")
+  ## De esta manera, el usuario responde debajo de la pregunta
+print ("¿Cómo te llamas?: ")
 nombre = input()
-print ("Encantado",nombre,"nos vemos")
+print ("Me alegro de conocerle,", nombre)
+
+  ## De estas dos maneras, el usuario responde después de la pregunta
+    ### 1
+print ("¿Cómo te llamas?: ", end="")
+nombre = input()
+print ("Me alegro de conocerle,", nombre)
+    ### 2
+nombre = input("¿Cómo te llamas?: ")
+print ("Me alegro de conocerle,", nombre)
+
 
 # Hace la suma de los números que des
 
