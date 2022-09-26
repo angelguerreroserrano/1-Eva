@@ -1,0 +1,13 @@
+# Las F-Strings te permiten meter variables dentro de las "", lo que puede facilitar la programación
+# Para ello habrá que poner una f delante de las comillas (f"")
+# Cuando queramos poner el nombre de la varibale dentro de las "", tendremos que ponerlo entre {}
+
+a = float(input("Número 1: "))
+b = float(input("Número 2: "))
+c = a+b
+print (f"La suma de los dos números es: {c}")
+print (f"La suma de los dos números es: {a+b}")
+
+  ## Otro ejemplo
+nombre = input("¿Cómo te llamas?: ")
+print (f"Hola {nombre}, encantado")
