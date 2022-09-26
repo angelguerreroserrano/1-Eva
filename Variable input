@@ -1,0 +1,10 @@
+# Me pregunta como me llamo y me responde
+# La variable input, lee lo que ponga, en este caso respondo con el nombre para que despues lo ponga
+
+print ("Hola, ¿Cómo te llamas?")
+nombre = input()
+print ("Encantado",nombre,"nos vemos")
+
+a = input("Número 1: ")
+b = input("Número 2: ")
+print (a+b)
