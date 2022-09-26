@@ -9,5 +9,7 @@ print (f"La suma de los dos números es: {c}")
 print (f"La suma de los dos números es: {a+b}")
 
   ## Otro ejemplo
-nombre = input("¿Cómo te llamas?: ")
-print (f"Hola {nombre}, encantado")
+nombre = input("Dígame su nombre: ")
+apellido1 = input(f"Dígame su apellido, {nombre}: ")
+apellido2 = input(f"Dígame su segundo apellido, {nombre} {apellido1}: ")
+print(f"Me alegro de conocerle, {nombre} {apellido1} {apellido2}.")
