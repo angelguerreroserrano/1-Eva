@@ -3,8 +3,18 @@ print ("Hola mundo")
 
 # Para hacer operaciones
 print (2+3)
+print (2-3)
+print (2*3)
+print (2/3)
 
-# a y b son variantes, que las defino al principio
+# a, b y c son variantes, que las defino al principio
 a = 2
 b = 3
+c = a+b
+print (c)
+
+# También se puede sumar nombres, o multiplicarlos
+a = Angel
+b = Guerrero
 print (a+b)
+print (a*2)
