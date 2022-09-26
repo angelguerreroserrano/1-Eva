@@ -15,8 +15,8 @@ print ("Me alegro de conocerle,", nombre)
 nombre = input("¿Cómo te llamas?: ")
 print ("Me alegro de conocerle,", nombre)
 
-
-  ## Para que la variable "input()" interprete lo que pongamos como números lo pondremos dentro de la variable "int()", sino, sumará palabras (2+3=23)
-a = int(input("Número 1: "))
-b = int(input("Número 2: "))
+  ## Si queremos que nos respondan con un número SIN DECIMALES, deberemos poner la variable "input()" dentro de la variable "int()"
+  ## Si queremos que el número sea CON DECIMALES, usaremos la variable "float()". (La variable "float()" también admite números sin decimales)
+a = float(input("Número 1: "))
+b = float(input("Número 2: "))
 print ("La suma de los dos números es:", a+b)
