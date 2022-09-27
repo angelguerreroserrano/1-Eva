@@ -1,0 +1,10 @@
+# Este programa te calcula la media de 3 notas que des
+
+def CalculaMedia ():
+  numero1 = float(input("Dime la primera nota: "))
+  numero2 = float(input("Dime la segunda nota: "))
+  numero3 = float(input("Dime la tercera nota: "))
+  suma = numero1+numero2+numero3
+  print (f"Tu media es de {suma/3}")
+  
+CalculaMedia()
