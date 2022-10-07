@@ -8,3 +8,19 @@ def detector_primos():
             print (cont)
 
 detector_primos()
+
+# HECHO EN CASA
+num = int(input("Dime un número: "))
+def divisores():
+    global num
+    i = 0
+    l_divisores = [0]
+    for j in range(num, 0, -1):
+        resto = num%j
+        if resto == 0:
+            l_divisores [i:] = [j]
+            i = i + 1
+    lista = str(l_divisores)
+    print (f"Los divores son {lista[1:-1]}")
+
+divisores()
