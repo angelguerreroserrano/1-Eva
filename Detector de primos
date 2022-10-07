@@ -1,0 +1,10 @@
+# Detector de primos
+
+def detector_primos():
+    num = int(input("Pon un número entero: "))
+    for cont in range(num, 0, -1):
+        resto = num%cont
+        if resto == 0:
+            print (cont)
+
+detector_primos()
