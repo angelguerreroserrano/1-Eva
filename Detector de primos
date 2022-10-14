@@ -13,6 +13,7 @@ detector_primos()
 num = int(input("Dime un número: "))
 def divisores():
     global num
+    global l_divisores
     i = 0
     l_divisores = [0]
     for j in range(num, 0, -1):
@@ -22,5 +23,11 @@ def divisores():
             i = i + 1
     lista = str(l_divisores)
     print (f"Los divores son {lista[1:-1]}")
+def primos():
+    if l_divisores == [num, 1]:
+        print ("Tu número es primo")
+    else:
+        print("Tu número no es primo")
 
 divisores()
+primos()
