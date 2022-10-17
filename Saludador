@@ -28,3 +28,29 @@ def saludo():
     else:
         print (f"Buenas noches, {nombre}.")
 saludo()
+
+# Detecta si la hora es erronea
+nombre = input("Introduce tu nombre: ")
+def pregunta_hora():
+    global hora
+    p_hora = input("Dime la hora: ")
+    if p_hora.find(":") == True:
+        hora = int(p_hora[:p_hora.find(":")])
+    else:
+        hora = int(p_hora)
+def saludo():
+    x = 0
+    while x == 0:
+        if (hora < 0) or (hora > 24):
+            print ("Esta hora es erronea.")
+            pregunta_hora()
+        else:
+            x = x + 1
+    if (hora >= 6) and (hora < 12):
+        print (f"Buenos días, {nombre}.")
+    elif (hora >= 12) and (hora < 21):
+        print (f"Buenas tardes, {nombre}.")
+    else:
+        print (f"Buenas noches, {nombre}.")
+pregunta_hora()
+saludo()
