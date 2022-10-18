@@ -29,7 +29,9 @@ def saludo():
         print (f"Buenas noches, {nombre}.")
 saludo()
 
+
 # Detecta si la hora es erronea
+
 nombre = input("Introduce tu nombre: ")
 def pregunta_hora():
     global hora
