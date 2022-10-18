@@ -1,0 +1,25 @@
+# Ingresa una cantidad de dinero
+# Pregunta si quieres sacar dinero
+# Si puedes sacar ese dinero te lo da
+dinero = 0
+def ingresar_dinero():
+    p_ingresar = input("¿Quieres ingresar dinero?: ")
+    p_ingresar = p_ingresar.lower()
+    if p_ingresar == "si" or p_ingresar == "sí":
+        global dinero
+        d_ingresar = int(input("¿Cuánto dinero quieres ingresar?: "))
+        dinero = dinero + d_ingresar
+        print(f"Tienes {dinero} euros.")
+        print("Gracias por ingresar dinero.\n")
+        ingresar_dinero()
+    elif p_ingresar == "no":
+        sacar_dinero()
+
+def sacar_dinero():
+    p_sacar = input("¿Quieres sacar dinero?: ")
+    p_sacar = p_sacar.lower()
+    if p_sacar == "si" or p_sacar == "sí":
+        d_sacar = int(input("¿Cuánto dinero quieres sacar?: "))
+        print("")
+
+ingresar_dinero()
