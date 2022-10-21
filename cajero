@@ -1,25 +1,60 @@
 # Ingresa una cantidad de dinero
 # Pregunta si quieres sacar dinero
 # Si puedes sacar ese dinero te lo da
+
+print("Para saber cuanto dinero tienes en la cuenta, escribe 'cuenta'")
+print("Para ingresar dinero, escribe 'ingresar'")
+print("Para sacar dinero, escribe 'sacar'")
+print("Para acabar, escribe 'salir'")
+print("")
+
 dinero = 0
-def ingresar_dinero():
-    p_ingresar = input("¿Quieres ingresar dinero?: ")
-    p_ingresar = p_ingresar.lower()
-    if p_ingresar == "si" or p_ingresar == "sí":
-        global dinero
-        d_ingresar = int(input("¿Cuánto dinero quieres ingresar?: "))
-        dinero = dinero + d_ingresar
-        print(f"Tienes {dinero} euros.")
-        print("Gracias por ingresar dinero.\n")
-        ingresar_dinero()
-    elif p_ingresar == "no":
-        sacar_dinero()
 
-def sacar_dinero():
-    p_sacar = input("¿Quieres sacar dinero?: ")
-    p_sacar = p_sacar.lower()
-    if p_sacar == "si" or p_sacar == "sí":
-        d_sacar = int(input("¿Cuánto dinero quieres sacar?: "))
-        print("")
+def pregunta():
+    p = input("\n¿Qué quieres hacer?: ")
+    if p == "cuenta":
+        p_cuenta()
+    elif p == "ingresar":
+        p_ingresar()
+    elif p == "sacar":
+        if dinero == 0:
+            print("No puedes sacar dinero.")
+            print(f"Tienes 0€ en la cuenta.")
+            pregunta()
+        else:
+            p_sacar()
+    elif p == "salir":
+        print("Gracias por confiar en este banco.")
+    else: 
+        print("Este argumento no es válido.")
+        pregunta()
+def p_cuenta():
+    print(f"Tienes {dinero}€.")
+    pregunta()
+def p_ingresar():
+    global dinero
+    dinero_ingresar = int(input("¿Cuánto dinero quieres ingresar?: "))
+    if dinero_ingresar < 0:
+        print("No puedes ingresar números negativos.")
+    else:
+        dinero = dinero + dinero_ingresar
+        print (f"Has ingresado {dinero_ingresar}€.")
+        print (f"Tienes {dinero}€ en la cuenta.")
+        pregunta()
+def p_sacar():
+    global dinero
+    dinero_sacar = int(input("¿Cuánto dinero quieres sacar?: "))
+    if dinero_sacar > dinero:
+        print("No tienes tanto dinero en la cuenta.")
+        print(f"Tienes {dinero}€ en la cuenta.")
+        p_sacar()
+    elif dinero_sacar < 0:
+        print("No puedes sacar dinero negativo.")
+        p_sacar()
+    else:
+        dinero = dinero - dinero_sacar
+        print (f"Has sacado {dinero_sacar}€.")
+        print (f"Tienes {dinero}€ en la cuenta.")
+        pregunta()
 
-ingresar_dinero()
+pregunta()
