@@ -6,7 +6,6 @@ print("Para saber cuanto dinero tienes en la cuenta, escribe 'cuenta'")
 print("Para ingresar dinero, escribe 'ingresar'")
 print("Para sacar dinero, escribe 'sacar'")
 print("Para acabar, escribe 'salir'")
-print("")
 
 dinero = 0
 
@@ -25,26 +24,32 @@ def pregunta():
             p_sacar()
     elif p == "salir":
         print("Gracias por confiar en este banco.")
-    else: 
-        print("Este argumento no es válido.")
+    else:
+        print("Este argumento no es válido. (cuenta, ingresar, sacar, salir)")
         pregunta()
 def p_cuenta():
     print(f"Tienes {dinero}€.")
     pregunta()
 def p_ingresar():
-    global dinero_billetes
     global dinero
     dinero_ingresar = int(input("¿Cuánto dinero quieres ingresar?: "))
     if dinero_ingresar < 0:
         print("No puedes ingresar números negativos.")
-    else:
+        p_ingresar()
+    elif dinero_ingresar % 5 == 0:
         dinero = dinero + dinero_ingresar
         print (f"Has ingresado {dinero_ingresar}€.")
         print (f"Tienes {dinero}€ en la cuenta.")
         pregunta()
+    else:
+        redondeo_ingresar = dinero_ingresar + (5 - (dinero_ingresar % 5))
+        dinero = dinero + redondeo_ingresar
+        print (f"Has ingresado {redondeo_ingresar}€.")
+        print (f"Tienes {dinero}€ en la cuenta.")
+        pregunta()
 def p_sacar():
-    global dinero_sacar
     global dinero
+    global dinero_sacar
     dinero_sacar = int(input("¿Cuánto dinero quieres sacar?: "))
     if dinero_sacar > dinero:
         print("No tienes tanto dinero en la cuenta.")
@@ -53,9 +58,15 @@ def p_sacar():
     elif dinero_sacar < 0:
         print("No puedes sacar dinero negativo.")
         p_sacar()
-    else:
+    elif dinero_sacar % 5 == 0:
         dinero = dinero - dinero_sacar
         print (f"Has sacado {dinero_sacar}€.")
+        print (f"Tienes {dinero}€ en la cuenta.")
+        pregunta()
+    else:
+        redondeo_sacar = dinero_sacar + (5 - (dinero_sacar % 5))
+        dinero = dinero - redondeo_sacar
+        print (f"Has sacado {redondeo_sacar}€.")
         print (f"Tienes {dinero}€ en la cuenta.")
         contar_billetes()
         pregunta()
@@ -71,5 +82,4 @@ def contar_billetes():
             print (f"Te voy a dar {cant_billetes} billetes de {j}€.")
         else:
             continue
-
 pregunta()
