@@ -32,6 +32,7 @@ def p_cuenta():
     print(f"Tienes {dinero}€.")
     pregunta()
 def p_ingresar():
+    global dinero_billetes
     global dinero
     dinero_ingresar = int(input("¿Cuánto dinero quieres ingresar?: "))
     if dinero_ingresar < 0:
@@ -42,6 +43,7 @@ def p_ingresar():
         print (f"Tienes {dinero}€ en la cuenta.")
         pregunta()
 def p_sacar():
+    global dinero_sacar
     global dinero
     dinero_sacar = int(input("¿Cuánto dinero quieres sacar?: "))
     if dinero_sacar > dinero:
@@ -55,6 +57,19 @@ def p_sacar():
         dinero = dinero - dinero_sacar
         print (f"Has sacado {dinero_sacar}€.")
         print (f"Tienes {dinero}€ en la cuenta.")
+        contar_billetes()
         pregunta()
+def contar_billetes():
+    global dinero_sacar
+    billetes = [500, 200, 100, 50, 20, 10, 5]
+    for j in billetes:
+        cant_billetes = 0
+        while dinero_sacar >= j:
+            dinero_sacar = dinero_sacar - j
+            cant_billetes = cant_billetes + 1
+        if cant_billetes != 0:
+            print (f"Te voy a dar {cant_billetes} billetes de {j}€.")
+        else:
+            continue
 
 pregunta()
