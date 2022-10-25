@@ -1,1 +1,41 @@
+def menu():
+    print("************************")
+    print("********  MENU  ********")
+    print("************************")
+    print("1. Ingresar dinero")
+    print("2. Sacar dinero")
+    print("3. Salir")
+    print("")
+def main():
+    seguir = True
+    saldo = 0
+    while seguir == True:
+        respuesta = int(input("¿Qué deseas hacer?: "))
+        if respuesta == 1:
+            saldo = ingresar_dinero(saldo)
+            seguir = True
+        elif respuesta == 2:
+            saldo = sacar_dinero(saldo)
+            seguir = True
+        elif respuesta == 3:
+            print("Muchas gracias y hasta pronto.")
+            seguir = False
+        else:
+            print("Este argumento no es válido.")
+            menu()
+            main()
+def ingresar_dinero(saldo):
+    dinero = int(input("¿Cuánto dinero quieres ingresar?: "))
+    saldo = saldo + dinero
+    print(f"Tienes {saldo}€.")
+    print("")
+    return(saldo)
+def sacar_dinero(saldo):
+    dinero = int(input("¿Cuánto dinero quieres sacar?: "))
+    saldo = saldo - dinero
+    print(f"Tienes {saldo}€.")
+    print("")
+    return(saldo)
 
+menu()
+main()
