@@ -15,8 +15,13 @@ def main():
             saldo = ingresar_dinero(saldo)
             seguir = True
         elif respuesta == 2:
-            saldo = sacar_dinero(saldo)
-            seguir = True
+            if saldo == 0:
+                print("No puedes sacar dinero.")
+                print(f"Tienes 0€ en la cuenta.\n")
+                seguir = True
+            else:
+                saldo = sacar_dinero(saldo)
+                seguir = True
         elif respuesta == 3:
             print("Muchas gracias y hasta pronto.")
             seguir = False
@@ -26,16 +31,27 @@ def main():
             main()
 def ingresar_dinero(saldo):
     dinero = int(input("¿Cuánto dinero quieres ingresar?: "))
-    saldo = saldo + dinero
-    print(f"Tienes {saldo}€.")
-    print("")
-    return(saldo)
+    if dinero < 0:
+        print("No puedes ingresar números negativos.")
+        ingresar_dinero(saldo)
+    else:
+        saldo = saldo + dinero
+        print(f"Tienes {saldo}€.\n")
+        return(saldo)
 def sacar_dinero(saldo):
     dinero = int(input("¿Cuánto dinero quieres sacar?: "))
-    saldo = saldo - dinero
-    print(f"Tienes {saldo}€.")
-    print("")
-    return(saldo)
+    if dinero < 0:
+        print("No puedes sacar números negativos.")
+        sacar_dinero(saldo)
+    elif dinero > saldo:
+        print("No tienes tanto dinero.")
+        print(f"Tienes {saldo}€ en la cuenta.")
+        sacar_dinero(saldo)
+    else:
+        saldo = saldo - dinero
+        print(f"Tienes {saldo}€.")
+        print("")
+        return(saldo)
 
 menu()
 main()
