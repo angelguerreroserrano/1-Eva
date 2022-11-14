@@ -1,8 +1,0 @@
-# la función len() cuenta las letras que tiene una palabra
-
-def deletreo():
-    palabra = input("Dime una palabra: ")
-    for cont in range(0,len(palabra)):
-        print(palabra[cont])
-
-deletreo()
