@@ -234,7 +234,7 @@ def op_efv():
     def main_op_efv():
         muestra_efv()
         elige_efv()
-        pregunta_efv()
+        pregunta_nota_efv()
 
     def muestra_efv():
         global lista_efv
@@ -288,11 +288,23 @@ def op_efv():
                     efv2 = efv
                     n_efv2 = n_efv
                     
+    def pregunta_nota_efv():
+        global efv1, efv2, nota_efv1, nota_efv2
+        lista_eleccion_examenes = [efv1, efv2]
+        for j in lista_eleccion_examenes:
+            nota_efv = float(input(f"Introduce la nota de {j}: "))
+            if nota_efv < 5:
+                nota_efv = 0
+            if j == efv1:
+                nota_efv1 = nota_efv
+            else:
+                nota_efv2 = nota_efv
+                    
     main_op_efv()
 
 def error_nota(nota):
     global seguir
-    if nota <= 0 or nota >= 10:
+    if nota < 0 or nota > 10:
         print("")
         print("__ERROR__")
         print("La nota tiene que estar entre 0 y 10.")
