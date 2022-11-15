@@ -238,6 +238,7 @@ def op_efv():
 
     def muestra_efv():
         global lista_efv
+        print("")
         print("__EXÁMENES FASE VOLUNTARIA__")
         print("A continuación se mostrarán las posibles exámenes. Elige 2 opciones. Pulsa enter para continuar.",
               end="")
@@ -261,6 +262,7 @@ def op_efv():
     def elige_efv():
         global lista_efv, idioma_efo, efv1, efv2, n_efv1, n_efv2
         seguir = False
+        print("")
         while seguir == False:
             for j in range(1,3):
                 efv = input(f"Introduce la opción {j}: ")
